@@ -47,7 +47,7 @@ public class Matriser {
 				if (a[i][j] != b[i][j]) {
 					return false;
 				}
-			} 
+			}
 		}
 		return true;
 	}
@@ -63,8 +63,30 @@ public class Matriser {
 	// f)
 	public static int[][] multipliser(int[][] a, int[][] b) {
 
-		// TODO
-		throw new UnsupportedOperationException("multipliser ikke implementert");
+		int aRows = a.length;
+		int bCols = b[0].length;
 
+		if (aRows != bCols) {
+			System.out.println("Ikke like mange rader i a som kolonner i b");
+			return null;
+		}
+
+		int[][] crossProduct = new int[aRows][bCols];
+
+		for (int i = 0; i < aRows * bCols; i++) {
+			int rIdx = i / aRows;
+			int cIdx = i % bCols;
+			int prod = 0;
+			int[] aRow = a[rIdx];
+
+			int j = 0;
+			for (int[] bRow : b) {
+				prod += aRow[j] * bRow[cIdx];
+				j++;
+			}
+			crossProduct[rIdx][cIdx] = prod;
+		}
+
+		return crossProduct;
 	}
 }
