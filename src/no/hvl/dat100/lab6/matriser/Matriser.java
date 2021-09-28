@@ -54,10 +54,15 @@ public class Matriser {
 
 	// e)
 	public static int[][] speile(int[][] matrise) {
+		int[][] mat = new int[matrise.length][matrise.length];
 
-		// TODO
-		throw new UnsupportedOperationException("speile ikke implementert");
+		for (int i = 0; i < matrise.length; i++) {
+			for (int j = 0; j < matrise.length; j++) {
+				mat[j][i] = matrise[i][j];
+			}
+		}
 
+		return mat;
 	}
 
 	// f)
