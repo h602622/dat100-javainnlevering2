@@ -13,9 +13,18 @@ public class Tabeller {
 	// b)
 	public static String tilStreng(int[] tabell) {
 
-		// TODO
-		throw new UnsupportedOperationException("tilStreng ikke implementert");
-		
+		String out = "";
+
+		out += "[";
+		if (tabell.length != 0) {
+			int i;
+			for (i = 0; i < tabell.length - 1; i++) {
+				out += tabell[i] + ",";
+			}
+			out += tabell[i];
+		}
+		out += "]";
+		return out;
 	}
 
 	// c)
@@ -42,23 +51,41 @@ public class Tabeller {
 
 	// f)
 	public static int[] reverser(int[] tabell) {
+		int[] newArr = new int[tabell.length];
+		int cnt = tabell.length;
 
-		// TODO
-		throw new UnsupportedOperationException("reverser ikke implementert");
-		
+		for (int number : tabell) {
+			newArr[--cnt] = number;
+		}
+
+		return newArr;
 	}
 
 	// g)
 	public static boolean erSortert(int[] tabell) {
-
-		// TODO
-		throw new UnsupportedOperationException("erSortert ikke implementert");
+		int prev = (int) Double.NEGATIVE_INFINITY;
+		for (int number : tabell) {
+			if (number < prev) {
+				return false;
+			}
+			prev = number;
+		}
+		return true;
 	}
 
 	// h)
 	public static int[] settSammen(int[] tabell1, int[] tabell2) {
+		int cnt = 0;
+		int[] newArr = new int[tabell1.length + tabell2.length];
 
-		// TODO
-		throw new UnsupportedOperationException("settSammen ikke implementert");
+		for (int number : tabell1) {
+			newArr[cnt++] = number;
+		}
+
+		for (int number : tabell2) {
+			newArr[cnt++] = number;
+		}
+
+		return newArr;
 	}
 }
